@@ -1,7 +1,7 @@
 import OMNTools
 import Foundation
 
-open class OMNPresetsDirectoryScanner {
+@objc public class OMNPresetsDirectoryScanner: NSObject {
     public var directoryScanner: OMNDirectoryScanner?
     @objc public var presetFilesOrderedBySection = [String:[PresetFile]]()
     public var singleSectionMode = true
