@@ -16,7 +16,7 @@ import Foundation
     //    return -1
     //  }
 
-    public init?(rootURL: URL) {
+    @objc public init?(rootURL: URL) {
         self.rootURL = rootURL
         directoryScanner = OMNDirectoryScanner(rootURL: rootURL)
     }
