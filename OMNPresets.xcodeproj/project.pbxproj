@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FE5372B12A039C2E00E2AA89 /* OMNTools in Frameworks */ = {isa = PBXBuildFile; productRef = FE5372B02A039C2E00E2AA89 /* OMNTools */; };
 		FE8BE8742A02C33300D1B20C /* OMNPresets.h in Headers */ = {isa = PBXBuildFile; fileRef = FE8BE8732A02C33300D1B20C /* OMNPresets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FEADC0062A02C3D000CB8A9B /* OMNPresets.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEADC0052A02C3D000CB8A9B /* OMNPresets.swift */; };
+		FEF695582A03C0360060EB8A /* OMNTools in Frameworks */ = {isa = PBXBuildFile; productRef = FEF695572A03C0360060EB8A /* OMNTools */; };
+		FEF6955D2A03C07E0060EB8A /* PresetFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF695592A03C0630060EB8A /* PresetFile.swift */; };
+		FEF6955E2A03C0A00060EB8A /* OMNPresetsDirectoryScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEF6955A2A03C0630060EB8A /* OMNPresetsDirectoryScanner.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +19,9 @@
 		FE8BE8732A02C33300D1B20C /* OMNPresets.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OMNPresets.h; sourceTree = "<group>"; };
 		FEADC0052A02C3D000CB8A9B /* OMNPresets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMNPresets.swift; sourceTree = "<group>"; };
 		FEADC0072A02C3E900CB8A9B /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		FEF695562A03C02F0060EB8A /* OMNTools */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = OMNTools; path = ../OMNTools; sourceTree = "<group>"; };
+		FEF695592A03C0630060EB8A /* PresetFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresetFile.swift; sourceTree = "<group>"; };
+		FEF6955A2A03C0630060EB8A /* OMNPresetsDirectoryScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OMNPresetsDirectoryScanner.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,7 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FE5372B12A039C2E00E2AA89 /* OMNTools in Frameworks */,
+				FEF695582A03C0360060EB8A /* OMNTools in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +46,7 @@
 		FE8BE8662A02C33300D1B20C = {
 			isa = PBXGroup;
 			children = (
+				FEF695552A03C02F0060EB8A /* Packages */,
 				FEADC0072A02C3E900CB8A9B /* Package.swift */,
 				FEADC0032A02C3D000CB8A9B /* Sources */,
 				FE8BE8712A02C33300D1B20C /* Products */,
@@ -67,10 +73,20 @@
 		FEADC0042A02C3D000CB8A9B /* OMNPresets */ = {
 			isa = PBXGroup;
 			children = (
+				FEF6955A2A03C0630060EB8A /* OMNPresetsDirectoryScanner.swift */,
+				FEF695592A03C0630060EB8A /* PresetFile.swift */,
 				FE8BE8732A02C33300D1B20C /* OMNPresets.h */,
 				FEADC0052A02C3D000CB8A9B /* OMNPresets.swift */,
 			);
 			path = OMNPresets;
+			sourceTree = "<group>";
+		};
+		FEF695552A03C02F0060EB8A /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				FEF695562A03C02F0060EB8A /* OMNTools */,
+			);
+			name = Packages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,7 +118,7 @@
 			);
 			name = OMNPresets;
 			packageProductDependencies = (
-				FE5372B02A039C2E00E2AA89 /* OMNTools */,
+				FEF695572A03C0360060EB8A /* OMNTools */,
 			);
 			productName = OMNPresets;
 			productReference = FE8BE8702A02C33300D1B20C /* OMNPresets.framework */;
@@ -132,7 +148,6 @@
 			);
 			mainGroup = FE8BE8662A02C33300D1B20C;
 			packageReferences = (
-				FE5372AF2A039C2E00E2AA89 /* XCRemoteSwiftPackageReference "OMNTools" */,
 			);
 			productRefGroup = FE8BE8712A02C33300D1B20C /* Products */;
 			projectDirPath = "";
@@ -158,7 +173,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEF6955D2A03C07E0060EB8A /* PresetFile.swift in Sources */,
 				FEADC0062A02C3D000CB8A9B /* OMNPresets.swift in Sources */,
+				FEF6955E2A03C0A00060EB8A /* OMNPresetsDirectoryScanner.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -369,21 +386,9 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCRemoteSwiftPackageReference section */
-		FE5372AF2A039C2E00E2AA89 /* XCRemoteSwiftPackageReference "OMNTools" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/omnts/OMNTools";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
 /* Begin XCSwiftPackageProductDependency section */
-		FE5372B02A039C2E00E2AA89 /* OMNTools */ = {
+		FEF695572A03C0360060EB8A /* OMNTools */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = FE5372AF2A039C2E00E2AA89 /* XCRemoteSwiftPackageReference "OMNTools" */;
 			productName = OMNTools;
 		};
 /* End XCSwiftPackageProductDependency section */
