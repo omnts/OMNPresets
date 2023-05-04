@@ -1,9 +1,11 @@
 import OMNTools
 import Foundation
 
-class OMNPresetsDirectoryScanner: OMNDirectoryScanner {
+open class OMNPresetsDirectoryScanner {
+    public var directoryScanner: OMNDirectoryScanner?
     @objc public var presetFilesOrderedBySection = [String:[PresetFile]]()
     public var singleSectionMode = true
+    fileprivate(set) var rootURL: URL
 
     //  func indexOfSection(named: String) -> Int {
     //    for (index,arrayPreset) in self.presetFilesOrderedBySection.enumerated() {
@@ -14,8 +16,9 @@ class OMNPresetsDirectoryScanner: OMNDirectoryScanner {
     //    return -1
     //  }
 
-    public override init?(rootURL: URL) {
-        super.init(rootURL: rootURL)
+    public init?(rootURL: URL) {
+        self.rootURL = rootURL
+        directoryScanner = OMNDirectoryScanner(rootURL: rootURL)
     }
 
     public func numberOfSections() -> Int {
@@ -60,8 +63,13 @@ class OMNPresetsDirectoryScanner: OMNDirectoryScanner {
     }
 
     @objc public func populateArrayPreset() {
-        if self.scanFolder() {
-            for (_,fileUrl) in self.files.enumerated() {
+        guard let scanner = directoryScanner else {
+            print("self.presetFilesOrderedBySection = \(self.presetFilesOrderedBySection)")
+
+            return
+        }
+        if scanner.scanFolder() {
+            for (_,fileUrl) in scanner.files.enumerated() {
                 if let presetFile = PresetFile(url: fileUrl), let presetDict = presetFile.dictionary, presetDict["group"] != nil {
                     let section = presetDict["group"] as! String
                     if var sectionsArray = self.presetFilesOrderedBySection[section] {
