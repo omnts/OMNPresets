@@ -9,7 +9,7 @@ let package = Package(name: "OMNPresets",
                                           targets: ["OMNPresets"])],
                       dependencies: [
                         // Dependencies declare other packages that this package depends on.
-                        .package(url: "file:///Users/ommalago/Desktop/Xcode-Frameworks/OMNTools", branch: "main"),
+                        .package(url: "../OMNTools", branch: "main"),
                       ],
 
                       targets: [.target(name: "OMNPresets",
